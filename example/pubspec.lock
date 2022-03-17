@@ -109,7 +109,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.3"
-  screenshot_callback:
+  screenshot_callback_fork:
     dependency: "direct dev"
     description:
       path: ".."
