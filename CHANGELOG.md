@@ -1,3 +1,5 @@
+## 1.1.6
+- Add null safety
 ## 1.1.5
 - Remove callback observer when deinit in iOS [#16](https://github.com/flutter-moum/flutter_screenshot_callback/issues/16).
 
