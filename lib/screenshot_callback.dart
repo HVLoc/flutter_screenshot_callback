@@ -1,13 +1,16 @@
-import 'dart:io';
 import 'dart:async';
+import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:screenshot/screenshot.dart';
 
 class ScreenshotCallback {
   static const MethodChannel _channel =
       const MethodChannel('flutter.moum/screenshot_callback');
+  final ScreenshotController screenshotController = ScreenshotController();
 
   /// Functions to execute when callback fired.
   List<VoidCallback> onCallbacks = <VoidCallback>[];
@@ -16,7 +19,7 @@ class ScreenshotCallback {
   /// callback is added.
   ///
   /// Defaults to `true`.
-   bool? requestPermissions;
+  bool? requestPermissions;
 
   ScreenshotCallback({this.requestPermissions}) {
     requestPermissions ??= true;
@@ -34,8 +37,16 @@ class ScreenshotCallback {
 
   /// Add void callback.
   void addListener(VoidCallback callback) {
-    assert(callback != null, 'A non-null callback must be provided.');
     onCallbacks.add(callback);
+  }
+
+  Future<Uint8List?> addListenerCapture(
+    VoidCallback callback, {
+    double? pixelRatio,
+    Duration delay = const Duration(milliseconds: 20),
+  }) {
+    onCallbacks.add(callback);
+    return screenshotController.capture(pixelRatio: pixelRatio, delay: delay);
   }
 
   Future<dynamic> _handleMethod(MethodCall call) async {
