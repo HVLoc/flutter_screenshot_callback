@@ -1,3 +1,7 @@
+## 1.1.9
+- Fix Config ios
+## 1.1.8
+- Config ios
 ## 1.1.7
 - Upgrading-pre-1.12
 ## 1.1.6
