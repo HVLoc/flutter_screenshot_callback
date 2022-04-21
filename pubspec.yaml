@@ -1,6 +1,6 @@
 name: screenshot_callback_fork
 description: Flutter plugin that allows you to detect mobile screenshot and execute callback functions on iOS and Android.
-version: 1.1.9
+version: 1.1.10
 homepage: https://github.com/HVLoc/flutter_screenshot_callback
 
 environment:

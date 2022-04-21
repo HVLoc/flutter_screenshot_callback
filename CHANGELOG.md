@@ -1,3 +1,5 @@
+## 1.1.10
+- Fix Config miniOS Ios
 ## 1.1.9
 - Fix Config ios
 ## 1.1.8
